@@ -12,5 +12,5 @@
 - Perfil de Especialização GVR : **Gestão e Virtualização de Redes**
 
 ## Opções UMinho
-- Desenvolvimento de Aplicações WEB (DAW)
-- Base de Dados NoSQL (BDNoSQL)
+- **Desenvolvimento de Aplicações WEB (DAW)*
+- **Base de Dados NoSQL (BDNoSQL)**
