@@ -1,0 +1,126 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.sidebar
+  a(href='/home') Home
+  a.active(href='/certificate') Create Certificate
+  a(href='/list/certificate') List Certificates
+  a(href='/crl') Import Certificate Revocation List
+  a(href='/ocsp') OCSP Service
+  a(href="/logout" ) 
+    i(class="fas fa-sign-out-alt")
+    |   Logout
+.content
+  h1 Create Certificate
+  hr
+
+  h3
+    b Certificate Profile - Manual User Dual-Use Certificate Enrollment using server-side Key generation
+  b This certficate profile is for enrolling user certificates using server-side Key generation
+
+  hr
+  form.w3-container.w3-card-8(action='/certificate' method='POST')
+    input(type='hidden' name='csrf' value=token)
+    b Server-side Key Generation:
+    br
+    br
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+        label PKCS #12 Password
+      .w3-col.s9.w3-border
+        input.w3-input.w3-border.w3-light-grey(type='password' name='pass')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+        label PKCS #12 Password again
+      .w3-col.s9.w3-border
+        input.w3-input.w3-border.w3-light-grey(type='password' name='re_pass')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Server-Side Key Generation Key Type
+      .w3-col.s9
+          select(id="tipo" name="tipo")
+              option(value='RSA') RSA 
+              option(value='ECC') ECC
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Server-Side Key Generation Key Size
+      .w3-col.s9
+          select(id="size" name="size")
+              option(value='1024') 1024
+              option(value='2048') 2048
+              option(value='3072') 3072
+              option(value='4096') 4096
+    br
+    b Subject name:
+    br
+    br
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label UID
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='uid')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Email
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='email' name='email')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Common Name
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='name')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Organizational Unit 3
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='org3')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Organizational Unit 2
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='org2')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Organizational Unit 1
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='org1')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Organizational Unit
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='org')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Organization
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='o')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Country
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='country')
+    br
+    b Requestor Information:
+    br
+    br
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Requestor Name
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='req_name')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Requestor Email
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='email' name='req_email')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+          label Requestor Phone
+      .w3-col.s9.w3-border
+          input.w3-input.w3-border.w3-light-grey(type='text' name='req_phone')
+    br
+    input.w3-btn.w3-teal.w3-border(type='submit' value='Submit')
+    hr

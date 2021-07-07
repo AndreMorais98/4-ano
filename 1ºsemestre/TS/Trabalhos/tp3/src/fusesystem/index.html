@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>Código de acesso</h1>
+
+<label for="fname">Código:</label>
+<input type="text" id="fname" name="fname"><br><br>
+<button onclick="WebSocketTest()">Submit</button> 
+
+</body>
+<script type = "text/javascript">
+    function WebSocketTest() {
+       if ("WebSocket" in window) {
+          alert("WebSocket is supported by your Browser!");
+          // Abertura do websocket
+          var ws = new WebSocket("ws://localhost:9998");
+          var code = document.getElementById('fname').value
+          console.log(code)
+          ws.onopen = function() {
+             // Enviar código pelo socket
+             ws.send(code);
+             //alert("Message is sent...");
+          };
+          ws.onclose = function() { 
+             // Fechar websocker
+             //alert("Connection is closed..."); 
+          };
+       } else {
+          // Browser não suporta websocket
+          //alert("WebSocket NOT supported by your Browser!");
+       }
+    }
+ </script>
+</html>

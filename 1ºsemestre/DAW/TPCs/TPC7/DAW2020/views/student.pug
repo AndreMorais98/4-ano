@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h3 Aluno: #{student.nome}
+        .w3-container
+            ul
+                li Numero: #{student.numero}
+                li Nome: #{student.nome}
+                li 
+                    Git: a(href=student.git)=student.git
+                    ul
+                        each val, index in student.tpc
+                            if(val==1)
+                                li TPC #{index}: Feito
+                            else
+                                li TPC #{index}: Não feito
+    .w3-container.w3-teal
+        footer.w3-container
+            p
+                a(href="/students") Voltar à Lista de Alunos        

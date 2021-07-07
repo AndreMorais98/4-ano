@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.bouncycastle:bcpg-fips:1.0.51" type="repository">
+    <properties maven-id="org.bouncycastle:bcpg-fips:1.0.5" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcpg-fips/1.0.5/bcpg-fips-1.0.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bc-fips/1.0.2.1/bc-fips-1.0.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

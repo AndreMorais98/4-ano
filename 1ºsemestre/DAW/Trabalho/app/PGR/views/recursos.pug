@@ -1,0 +1,249 @@
+extends header
+
+block content
+
+    h1 <i class="fas fa-search"></i> Pesquisar
+    hr 
+    b
+    .w3-row
+        .w3-dropdown-hover.w3-white.w3-margin
+            label Procurar por 
+            select(name="ord" id="ord" )
+                option(value="nome") Autor 
+                option(value="tipo") Tipo
+                option(value="tags") Tags
+                option(value="ano") Ano
+            input(type="text" onkeydown="search(this)" id="search" class="search" placeholder="Search..")
+                
+    .w3-row
+        .w3-container.w3-margin
+            table.w3-table-all#myTable.w3-hoverable
+                thead
+                    tr
+                        th Id
+                        th AutorID
+                        th Tipo
+                        th Título
+                        th Descrição
+                        th SubTítulo
+                        th Data de criação
+                        th Data de upload
+                        th Tags
+                        th Autor
+                tbody
+    script(src='https://code.jquery.com/jquery-3.5.1.js')
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css')
+    script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+    script.
+        $(document).ready(function() {
+            var token = '!{token}'
+            $('#myTable').DataTable( {
+                "columnDefs": [
+                    {
+                        "targets": [ 2 ],
+                        "visible": true,
+                        "searchable": false
+                    }
+                ],
+                "paginate": true,
+                "order": [[ 1, "desc" ]],
+                "ajax": {
+                    "url": "http://localhost:7777/recurso/lista?token="+token,
+                    "type": "GET"
+                },
+                "columnDefs": [
+                    {
+                        "targets": [0,1],
+                        "visible": false,
+                        "searchable": false
+                    }
+                ],
+                "columns": [
+                    { "data": "_id" },
+                    { "data": "autorID"},
+                    { "data": "tipo" },
+                    { "data": "titulo",
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                            $(nTd).html("<a href='http://localhost:7778/recursos/" + oData._id + "'>" + oData.titulo + "</a>");
+                        } 
+                    },
+                    { "data": "descricao" },
+                    { "data": "subtitulo" },
+                    { "data": "dataCriacao" },
+                    { "data": "dataRegisto" },
+                    { "data": "hashtags" },
+                    { "data": "nome",
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                            $(nTd).html("<a href='http://localhost:7778/perfil/" + oData.autorID + "'>" + oData.nome + "</a>");
+                        } 
+                    }
+                ]
+            });
+        });
+    script.
+        function search(ele) {
+            if(event.key === 'Enter') {
+                var tipo = document.getElementById("ord").value;
+                console.log(tipo)
+                var input = ele.value;
+                var table = $('#myTable').DataTable();
+                table.destroy();
+                var token = '!{token}'
+                if(tipo == "tipo")  {
+                    $(document).ready(function() {
+                        $('#myTable').DataTable( {
+                            "paginate": true,
+                            "order": [[ 1, "desc" ]],
+                            "ajax": {
+                                "url": "http://localhost:7777/recurso/lista?"+tipo+"="+input+"&token="+token,
+                                "type": "GET"
+                            },
+                           "columnDefs": [
+                                {
+                                    "targets": [0,1],
+                                    "visible": false,
+                                    "searchable": false
+                                }
+                            ],
+                            "columns": [
+                                { "data": "_id" },
+                                { "data": "autorID"},
+                                { "data": "tipo" },
+                                { "data": "titulo",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/recursos/" + oData._id + "'>" + oData.titulo + "</a>");
+                                    } 
+                                },
+                                { "data": "descricao" },
+                                { "data": "subtitulo" },
+                                { "data": "dataCriacao" },
+                                { "data": "dataRegisto" },
+                                { "data": "hashtags" },
+                                { "data": "nome",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/perfil/" + oData.autorID + "'>" + oData.nome + "</a>");
+                                    } 
+                                }
+                            ]
+                        });
+                    });
+                }
+                else if(tipo == "tags"){
+                    $(document).ready(function() {
+                        $('#myTable').DataTable( {
+                            "paginate": true,
+                            "order": [[ 1, "desc" ]],
+                            "ajax": {
+                                "url": "http://localhost:7777/recurso/lista?"+tipo+"="+input+"&token="+token,
+                                "type": "GET"
+                            },
+                             "columnDefs": [
+                                {
+                                    "targets": [0,1],
+                                    "visible": false,
+                                    "searchable": false
+                                }
+                            ],
+                            "columns": [
+                                { "data": "_id" },
+                                { "data": "autorID"},
+                                { "data": "tipo" },
+                                { "data": "titulo",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/recursos/" + oData._id + "'>" + oData.titulo + "</a>");
+                                    } 
+                                },
+                                { "data": "descricao" },
+                                { "data": "subtitulo" },
+                                { "data": "dataCriacao" },
+                                { "data": "dataRegisto" },
+                                { "data": "hashtags" },
+                                { "data": "nome",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/perfil/" + oData.autorID + "'>" + oData.nome + "</a>");
+                                    } 
+                                }
+                            ]
+                        });
+                    });
+                }
+                else if(tipo == "ano"){
+                    $(document).ready(function() {
+                        $('#myTable').DataTable( {
+                            "paginate": true,
+                            "order": [[ 1, "desc" ]],
+                            "ajax": {
+                                "url": "http://localhost:7777/recurso/lista?"+tipo+"="+input+"&token="+token,
+                                "type": "GET"
+                            },
+                             "columnDefs": [
+                                {
+                                    "targets": [0,1],
+                                    "visible": false,
+                                    "searchable": false
+                                }
+                            ],
+                            "columns": [
+                                { "data": "_id" },
+                                { "data": "autorID"},
+                                { "data": "tipo" },
+                                { "data": "titulo",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/recursos/" + oData._id + "'>" + oData.titulo + "</a>");
+                                    } 
+                                },
+                                { "data": "descricao" },
+                                { "data": "subtitulo" },
+                                { "data": "dataCriacao" },
+                                { "data": "dataRegisto" },
+                                { "data": "hashtags" },
+                                { "data": "nome",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/perfil/" + oData.autorID + "'>" + oData.nome + "</a>");
+                                    } 
+                                }
+                            ]
+                        });
+                    });
+                }
+                else if(tipo == "nome"){
+                    $(document).ready(function() {
+                        $('#myTable').DataTable( {
+                            "paginate": true,
+                            "order": [[ 1, "desc" ]],
+                            "ajax": {
+                                "url": "http://localhost:7777/recurso/lista?"+tipo+"="+input+"&token="+token,
+                                "type": "GET"
+                            },
+                             "columnDefs": [
+                                {
+                                    "targets": [0,1],
+                                    "visible": false,
+                                    "searchable": false
+                                }
+                            ],
+                            "columns": [
+                                { "data": "_id" },
+                                { "data": "autorID"},
+                                { "data": "tipo" },
+                                { "data": "titulo",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/recursos/" + oData._id + "'>" + oData.titulo + "</a>");
+                                    } 
+                                },
+                                { "data": "descricao" },
+                                { "data": "subtitulo" },
+                                { "data": "dataCriacao" },
+                                { "data": "dataRegisto" },
+                                { "data": "hashtags" },
+                                { "data": "nome",
+                                    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                        $(nTd).html("<a href='http://localhost:7778/perfil/" + oData.autorID + "'>" + oData.nome + "</a>");
+                                    } 
+                                }
+                            ]
+                        });
+                    });
+                }
+            }
+        }

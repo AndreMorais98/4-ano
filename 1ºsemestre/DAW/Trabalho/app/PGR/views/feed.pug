@@ -1,0 +1,59 @@
+extends header
+block content
+    h1(class="nowrap") 
+        i(class="fas fa-home") 
+        | Feed
+    hr
+    .container
+    .page-load-status
+        .loader-ellips.infinite-scroll-request
+            span.loader-ellips__dot
+            span.loader-ellips__dot
+            span.loader-ellips__dot
+            span.loader-ellips__dot
+        p.infinite-scroll-last End of content
+        p.infinite-scroll-error No more pages to load
+    link(rel='stylesheet' href='/stylesheets/feed.css')
+    script(href='javascripts/infinite-scroll.pkgd.min.js')
+    script(src='https://code.jquery.com/jquery-3.5.1.js')
+    script(src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/4.0.1/infinite-scroll.pkgd.min.js")
+    script. 
+        $(function() {
+            let $container = $('.container').infiniteScroll({
+                path: function() {
+                    return `http://localhost:7777/pub/lista?limit=5&page=${this.pageIndex}&token=!{token}`;
+                },
+                // load response as JSON
+                responseBody: 'json',
+                status: '.scroll-status',
+                history: false,
+            });
+            console.log("asd")
+            $container.on( 'load.infiniteScroll', function( event, body ) {
+                // compile body data into HTML
+                console.log(body);
+                let itemsHTML = body.map( getItemHTML ).join('');
+                // convert HTML string into elements
+                let $items =  $( itemsHTML );
+                // append item elements
+                $container.infiniteScroll( 'appendItems', $items );
+            });
+            console.log("asd")
+            // load initial page
+            $container.infiniteScroll('loadNextPage');
+            console.log("asd")
+            //------------------//
+            function getItemHTML({prodName,prodId,recursoTitulo,recursoDescricao,dataCriacao,recursoTipo,recursoId}) {
+                console.log("we did it")
+                return ` <div class="post-content">
+                            <p class="post-date"> ${recursoTipo} publicado em ${dataCriacao} por <a href='http://localhost:7778/perfil/${prodId}'>${prodName}</a> </p>
+                            <h2 class="post-title"><a href='http://localhost:7778/recursos/${recursoId}'>${recursoTitulo}</a></h2>
+                            <div class="post-excerpt">
+                                <p>${recursoDescricao}</p>
+                            </div>
+                        </div>`;
+            }
+        });
+
+

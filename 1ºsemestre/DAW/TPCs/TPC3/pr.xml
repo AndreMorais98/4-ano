@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project_record>
+    <meta>
+        <key_name>TPC3</key_name>
+        <title>XLS e XML</title>
+        <subtitle>TPC da UC Desenvolvimento de Aplicações Web</subtitle>
+        <begin_date>28/10/2020</begin_date>
+        <end_date>04/11/2020</end_date>
+        <supervisor url="http://www.di.uminho.pt/~jcr">José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <student>
+            <id_student>a83899</id_student>
+            <name>André Loureiro Morais -</name>
+            <email url="mailto:a83899@alunos.uminho.pt">a83899@alunos.uminho.pt</email>
+        </student>
+    </workteam>
+    <abstract>
+        <paragraph>Criação de um XSL para transformar o pr.xml numa página html.</paragraph>
+        <paragraph>Criação de um XSL para transformar o xml dos arqueossítios em várias páginas hmtl.</paragraph>
+        <paragraph>Deixo aqui presente o meu <link url="https://github.com/Demorales1998">Github</link>.</paragraph>
+    </abstract>
+    <deliverables>
+        <deliverable url="./arq/index.html">indice dos arqueossítios</deliverable>
+        <deliverable url="./arq.xml">XML dos arqueossitios</deliverable>
+        <deliverable url="./arq.xsl">XSL dos arqueossitios </deliverable>
+        <deliverable url="./pr.xml">XML do project record</deliverable>
+        <deliverable url="./pr.xsl">XSL do project record</deliverable>
+        <deliverable url="./pr.html">HTML do project record</deliverable>
+    </deliverables>
+    <date>29/10/2020</date>
+</project_record>

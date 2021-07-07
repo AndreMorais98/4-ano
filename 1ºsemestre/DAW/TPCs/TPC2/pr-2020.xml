@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project_record SYSTEM "file:/C:/Users/andre/DAW2020/TPCs/TP2/pr-2020.dtd">
+<project_record>
+    <meta>
+        <key_name>TPC2</key_name>
+        <title>XML e DTD</title>
+        <subtitle>TPC da UC Desenvolvimento de Aplicações Web</subtitle>
+        <begin_date>14/10/2020</begin_date>
+        <end_date>21/10/2020</end_date>
+        <supervisor url="http://www.di.uminho.pt/~jcr">José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <student>
+            <id_student>a83899</id_student>
+            <name>André Loureiro Morais -</name>
+            <email url="mailto:a83899@alunos.uminho.pt">a83899@alunos.uminho.pt</email>
+        </student>
+    </workteam>
+    <abstract>
+        <paragraph>O <b>Project Record</b> aqui criado corresponde ao <u>TPC2</u>.</paragraph>
+        <paragraph>Primeiramente, foi feito o <u>Documento Type Definition</u> (DTD) e posteriormente gerado um <i>XML</i> que foi populada depois.</paragraph>
+        <paragraph>Deixo aqui presente o meu <link url="https://github.com/Demorales1998">Github</link>.</paragraph>
+    </abstract>
+    <deliverables>
+        <deliverable url="pr-2020.dtd">DTD do Project Record (DTD)</deliverable>
+    </deliverables>
+    <date>24/10/2020</date>
+</project_record>

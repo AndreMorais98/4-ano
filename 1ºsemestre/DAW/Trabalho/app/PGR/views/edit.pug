@@ -1,0 +1,61 @@
+extends layout
+
+block content
+    .w3-container.w3.bar.w3-teal
+        a(href="/logout" class="w3-bar-item w3-button w3-right")
+            img(src="../images/logout.png" style='width:25px; height:25px;') 
+        a(href="" class="w3-bar-item w3-button w3-right")
+            img(src="../images/home.png" style='width:25px; height:25px;') 
+
+    .w3-card-4
+        header.w3-container
+            .w3-container.w3-margin
+                table.w3-table-all#myTable
+                    caption Lista de Utilizadores 
+                        thead
+                            tr
+                                th ID
+                                th Nome
+                                th Email
+                                th Filiação
+                                th Nível
+                                th Data de Registo
+                                th Data do último acesso
+                                th Remover Utilizador
+                        tbody
+
+
+    script(src='https://code.jquery.com/jquery-3.5.1.js')
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css')
+    script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+
+    script.
+        var token = '#{token}';
+        $(document).ready(function() {
+            $('#myTable').DataTable( {
+                "paginate": false,
+                "order": [[ 1, "desc" ]],
+                "ajax": {
+                    "url": "http://localhost:7777/users/lista?token=" + token,
+                    "type": "GET"
+                },
+                "columns": [
+                    { "data": "_id",
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                            $(nTd).html("<a href='http://localhost:7778/perfil/"+ oData._id +"'>"+oData._id+"</a>");
+                        } 
+                    },
+                    { "data": "nome"},
+                    { "data": "email"},
+                    { "data": "filiacao"},
+                    { "data": "nivel"},
+                    { "data": "dataRegisto"},
+                    { "data": "dataUltimoAcesso"},
+                    { data: null, 
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                $(nTd).html("<a href='http://localhost:7778/admin/delete/"+ oData._id +"'>" + '<center><button class="w3-button w3-red"> Apagar </button></center>' +"</a>");
+                        },
+                    }
+                ],
+            } );
+        } );

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    .w3-container.w3-teal
+        header.w3-container.w3-teal
+            h2 Registar
+        form.w3-container(action='/students' method='POST')
+            label.w3-text-teal
+                p.w3-text-white Nome:
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='nome')
+            label.w3-text-teal
+                p.w3-text-white Número (A ou PG): 
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='numero')
+            label.w3-text-teal
+                p.w3-text-white Link do Git:
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='git')
+            br
+            input.w3-btn.w3-tealw3-btn.w3-border.w3-margin-bottom.w3-left.w3-teal(type='submit' value='Registar')
+            input.w3-btn.w3-border.w3-margin-bottom.w3-right.w3-teal(type='reset' value='Limpar')
+    .w3-container.w3-teal
+        footer.w3-container
+            p
+                a(href="/students") Voltar à página principal

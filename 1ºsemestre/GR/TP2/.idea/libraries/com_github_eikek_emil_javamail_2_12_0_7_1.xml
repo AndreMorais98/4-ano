@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="com.github.eikek:emil-javamail_2.12:0.7.1" type="repository">
+    <properties maven-id="com.github.eikek:emil-javamail_2.12:0.7.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/eikek/emil-javamail_2.12/0.7.1/emil-javamail_2.12-0.7.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.12.11/scala-library-2.12.11.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/eikek/emil-common_2.12/0.7.1/emil-common_2.12-0.7.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/co/fs2/fs2-core_2.12/2.5.0/fs2-core_2.12-2.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/cats-core_2.12/2.3.1/cats-core_2.12-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/cats-kernel_2.12/2.3.1/cats-kernel_2.12-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/simulacrum-scalafix-annotations_2.12/0.5.3/simulacrum-scalafix-annotations_2.12-0.5.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/cats-effect_2.12/2.3.1/cats-effect_2.12-2.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/scodec/scodec-bits_2.12/1.1.23/scodec-bits_2.12-1.1.23.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/co/fs2/fs2-io_2.12/2.5.0/fs2-io_2.12-2.5.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/1.6.5/jakarta.mail-1.6.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/log4s/log4s_2.12/1.9.0/log4s_2.12-1.9.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

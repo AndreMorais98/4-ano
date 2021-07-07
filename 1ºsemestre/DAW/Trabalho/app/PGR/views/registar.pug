@@ -1,0 +1,63 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Registar
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.main
+  // Sign up form
+  section.signup
+    .container
+      .signup-content
+        .signup-form
+          h2.form-title Registar
+          form#register-form.register-form(method='POST' action='/registar' enctype='multipart/form-data')
+            //- Nome
+            .form-group
+              label(for='nome')
+                i.zmdi.zmdi-account.material-icons-name
+              input#name(type='text' name='nome' placeholder='Nome')
+            //- Email
+            .form-group
+              label(for='email')
+                i.zmdi.zmdi-email
+              input#email(type='email' name='email' placeholder='Email')
+            //- Password
+            .form-group
+              label(for='password')
+                i.zmdi.zmdi-lock
+              input#pass(type='password' name='password' placeholder='Password')
+            .form-group
+              label(for='re-pass')
+                i.zmdi.zmdi-lock-outline
+              input#re_pass(type='password' name='re_pass' placeholder='Repetir password')
+            //- Filiação
+            .form-group
+              p Filiação:
+              label(for='filiacao')
+              select(id="filiacao" name="filiacao")
+                option(value="estudante") Estudante
+                option(value="professor") Professor
+
+            //- Nível
+            .form-group
+              p Nível:
+              label(for='nivel')
+              select(id="nivel" name="nivel")
+                option(value="consumidor") Consumidor
+                option(value="produtor") Produtor  
+
+            //- Foto de perfil
+            .form-group
+              label(for='fotoperfil')
+                i.zmdi.zmdi-face
+              input#fp(type='file' name='myFile' placeholder='Escolher Ficheiro' accept="image/png, image/jpeg, image/jpg")
+
+            .form-group.form-button
+              input#signup.form-submit(type='submit' value='Registar')
+        .signup-image
+          figure
+            img(src='images/signup-image.jpg' alt='sing up image')
+          a.signup-image-link(href='/') Já sou um membro

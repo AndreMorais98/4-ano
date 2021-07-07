@@ -1,0 +1,6 @@
+projectKey=pd-ui
+serverUrl=http://localhost:9000
+serverVersion=8.9.1.44547
+dashboardUrl=http://localhost:9000/dashboard?id=pd-ui
+ceTaskId=AXo_fD-avUZbWsY3B3i0
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXo_fD-avUZbWsY3B3i0

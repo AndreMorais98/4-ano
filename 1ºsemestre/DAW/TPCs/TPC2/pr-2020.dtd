@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT project_record (meta,workteam,abstract,deliverables,date) >
+
+<!ELEMENT meta (key_name,title,subtitle?,begin_date,end_date,supervisor) >
+
+<!ELEMENT key_name (#PCDATA) >
+<!ELEMENT title (#PCDATA) >
+<!ELEMENT subtitle (#PCDATA) >
+<!ELEMENT begin_date (#PCDATA) >
+<!ELEMENT end_date (#PCDATA) >
+<!ELEMENT supervisor (#PCDATA) >
+<!ATTLIST supervisor url CDATA #REQUIRED>
+
+<!ELEMENT workteam (student)+ >
+
+<!ELEMENT student (id_student,name,email) >
+<!ELEMENT id_student (#PCDATA) >
+<!ELEMENT name (#PCDATA) >
+<!ELEMENT email (#PCDATA) >
+<!ATTLIST email url CDATA #REQUIRED >
+
+<!ELEMENT abstract (paragraph)+ >
+<!ELEMENT paragraph (#PCDATA | i | u | b | link)* >
+<!ELEMENT b (#PCDATA| i | u | link)*>
+<!ELEMENT i (#PCDATA| b | u | link)*>
+<!ELEMENT u (#PCDATA| b | i | link)*>
+<!ELEMENT link (#PCDATA) >
+<!ATTLIST link url CDATA #REQUIRED >
+
+<!ELEMENT deliverables (deliverable)* >
+<!ELEMENT deliverable (#PCDATA) >
+<!ATTLIST deliverable url CDATA #REQUIRED >
+
+<!ELEMENT date (#PCDATA) >

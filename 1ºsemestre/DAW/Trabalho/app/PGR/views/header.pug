@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+    link(rel='icon' href='/images/favicon.png')
+  body
+    if(isAdmin != true)
+        div(id="myNav" class="overlay")
+            a(href="javascript:void(0)" class="closebtn" onclick="closeNav()") &times;
+            div(class="overlay-content")
+                a(href="/feed" )
+                    i(class="fas fa-home") 
+                    |   Feed
+                a(href="/perfil" ) 
+                    i(class="fa fa-user") 
+                    |   Perfil
+                if(isProd)
+                    a(href="/files/upload" ) 
+                        i(class="fas fa-upload")
+                        |   Upload
+                a(href="/recursos" ) 
+                    i(class="fas fa-search")
+                    |   Pesquisar
+                a(href="/top" ) 
+                    i(class="fas fa-trophy")
+                    |   Top
+                a(href="/logout" ) 
+                    i(class="fas fa-sign-out-alt")
+                    |   Logout
+
+        button(class="openbtn" onclick="openNav()") ☰ 
+        block content
+script.
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }

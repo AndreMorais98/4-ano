@@ -1,0 +1,68 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Criar Certificado
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.main
+  // Sign up form
+  section.signup
+    .container
+      .signup-content
+        .signup-form
+          h2.form-title Criar Certificado
+          form#register-form.register-form(method='POST' action='/files/ouro' enctype='multipart/form-data')
+            //- Nome
+            .form-group
+              label(for='nome')
+                i.zmdi.zmdi-reader
+              input#nome(type='text' name='nome' placeholder='Nome')
+
+            //- Numero de Serie
+            .form-group
+              label(for='numero_serie') #
+              input#num(type='text' name='numero_serie' placeholder='Número de Série')
+
+            //- d
+            .form-group
+              label(for='descricao')
+                i.zmdi.zmdi-comment-alt-text
+              input#num(type='text' name='descricao' placeholder='Descrição')
+              
+            //- Numero de Serie
+            .form-group
+              label(for='ano')
+                i.zmdi.zmdi-shield-security
+              input#ano(type='text' name='ano' placeholder='Ano')
+
+            //- Peso
+            .form-group
+              label(for='peso')
+                i.zmdi.zmdi-shopping-basket
+              input#peso(type='text' name='peso' placeholder='Peso')
+
+            //- Pureza
+            .form-group
+              label(for='pureza') %
+              input#pureza(type='text' name='pureza' placeholder='Pureza')
+
+            //- Fabricante
+            .form-group
+              label(for='pais_fabricante')
+                i.zmdi.zmdi-badge-check
+              input#fabricante(type='text' name='pais_fabricante' placeholder='País Fabricante')
+
+            //- Foto de perfil
+            .form-group
+              label(for='foto')
+                i.zmdi.zmdi-search-in-file
+              input#foto(type='file' name='myFile' placeholder='Escolher Ficheiro' multiple accept="image/png, image/jpeg, image/jpg")
+              
+            .form-group.form-button
+              input#signup.form-submit(type='submit' value='Criar')
+        .signup-image
+          figure
+            img(src='/images/ingots.png' alt='sing up image')
+          a.signup-image-link(href='/certificado') Voltar atrás

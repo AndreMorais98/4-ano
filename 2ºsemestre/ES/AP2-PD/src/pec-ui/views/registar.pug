@@ -1,0 +1,33 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Registar
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.main
+  // Sign up form
+  section.signup
+    .container
+      .signup-content
+        .signup-form
+          h2.form-title Registar
+          form#register-form.register-form(method='POST' action='/registar' )
+            //- Email
+            .form-group
+              label(for='email')
+                i.zmdi.zmdi-email
+              input#email(type='email' name='email' placeholder='Email')
+            //- Password
+            .form-group
+              label(for='password')
+                i.zmdi.zmdi-lock
+              input#pass(type='password' name='password' placeholder='Password')
+
+            .form-group.form-button
+              input#signup.form-submit(type='submit' value='Registar')
+        .signup-image
+          figure
+            img(src='images/registo.png' alt='sing up image')
+          a.signup-image-link(href='/') Já sou um membro

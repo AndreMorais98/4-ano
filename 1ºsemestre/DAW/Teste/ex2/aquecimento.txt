@@ -1,0 +1,8 @@
+1.  Existem 842 processos de nível 3. 
+    Existem 17 processos de nível 3 descendentes de 750.
+
+2. 116 processos
+
+3. 5 processos
+
+4. 6 processos

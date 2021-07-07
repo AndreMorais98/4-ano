@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/andre/OneDrive/%C3%81rea%20de%20Trabalho/Universidade/4ano/DAW/Aulas/Aula%204/pr.dtd">
+<pr>
+    <meta>
+        <key>TPC4</key>
+        <title>Criação de Servidor em Nodejs</title>
+        <subtitle>TPC da UC Desenvolvimento de Aplicações Web</subtitle>  
+        <bdate>04/11/20</bdate>
+        <edate>11/11/20</edate>
+        <supervisor url="http://www.di.uminho.pt/~jcr">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83899">
+            <name>André Loureiro Morais</name>
+            <email>a83899@alunos.uminho.com</email>
+            <link url="https://github.com/Demorales1998"> Github </link>
+        </member>
+    </team>
+    <abstract>
+        <p>Alterei apenas, do ficheiro <b>arq.xsl</b>, o href para não gerar id's random, mas sim ordenados</p>
+        <p>Criação de um server para gerar as páginas html</p>
+    </abstract>
+    <deliverables>
+        <link url="./pr.xml">XML do Project Record</link>
+        <link url="./arq.xml">XML do Dataset usado</link>
+        <link url="./arq.xsl">XSL dos arqueossítios </link>
+        <link url="./server.js">Servidor para gerar páginas html</link>
+        <link url="./arqs">Pasta com todoas as páginas web</link>
+        <link url="./arqs/index.html">Página Índice dos arqueossítios</link>
+    </deliverables>
+</pr>

@@ -1,0 +1,11 @@
+[Mongo]
+mongo_user = root
+mongo_password = root
+
+[GmailUser]
+gmail_user = 
+gmail_password = 
+
+[SocketTCP]
+host = localhost
+port = 7139

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .w3-container.w3-teal
+        header.w3-container.w3-teal
+            h2 Editar
+        form.w3-container(action='/students/edit' method='POST')
+            label.w3-text-teal
+                p Nome:
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='nome' value=student.nome)
+            label.w3-text-teal
+                b Número
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='numero' value=student.numero)
+            label.w3-text-teal
+                p Link do Git:
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='git' value=student.git)
+            br
+            input.w3-btn.w3-tealw3-btn.w3-border.w3-margin-bottom.w3-left.w3-teal(type='submit' value='Editar')
+    .w3-container.w3-teal
+        footer.w3-container
+            p
+                a(href="/students") Voltar à página principal

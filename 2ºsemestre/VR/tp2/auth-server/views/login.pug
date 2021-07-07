@@ -1,0 +1,36 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Login
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.main
+  // Sing in  Form
+  section.sign-in
+    .container
+      .signin-content
+        .signin-image
+          figure
+            img(src='images/signin-image.jpg' alt='sing up image')
+          a.signup-image-link(href='/registar') Criar um conta
+        .signin-form
+          h2.form-title Login
+          form#login-form.register-form(method='POST' action='/login')
+            .form-group
+              label(for='email')
+                i.zmdi.zmdi-account.material-icons-name
+              input#your_name(type='text' name='email' placeholder='Email')
+            .form-group
+              label(for='password')
+                i.zmdi.zmdi-lock
+              input#your_pass(type='password' name='password' placeholder='Password')
+            if(err=="1")
+              <i class="fas fa-info-circle"></i> Email/Password incorretos
+            if(err=="2")
+              <i class="fas fa-info-circle"></i> Sessão Expirada
+            .form-group.form-button
+              input#signin.form-submit(type='submit' value='Login')

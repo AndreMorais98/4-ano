@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h2 Lista de Hosts
+        if host.length > 0
+            .w3-container
+            ul 
+                each s in host
+                    li 
+                      a(href="/" + s+ "/").w3-button.w3-teal.w3-round-small #{s}
+        else
+            div.w3-container
+                p Ainda não há hosts.
+    .w3-container.w3-teal
+        footer.w3-container
+            p
+                adress Gerado por web :: André Morais

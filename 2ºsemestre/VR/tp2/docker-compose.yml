@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+    mongo:
+        image: mongo
+        container_name: mongo
+        volumes: 
+            - storage1:/home
+        networks:
+            - network1
+    auth-server:
+        image: demorales/auth_server_vr
+        container_name: auth-server
+        networks: 
+            - network1
+            - network2
+        ports:
+            - '7777:7777'
+    http-file-server:
+        image:  demorales/file_server_vr
+        container_name: http-file-server
+        volumes: 
+            - storage2:/home
+            - ../:/usr/tp2/http-file-server/home/server
+        networks: 
+            - network2
+        ports:
+            - '8080:8080'
+volumes:
+    storage1:
+    storage2:
+networks: 
+    network1:
+    network2:

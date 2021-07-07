@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/andre/OneDrive/%C3%81rea%20de%20Trabalho/Universidade/4ano/DAW/Aulas/Aula%204/pr.dtd">
+<pr>
+    <meta>
+        <key>TPC8</key>
+        <title>Implementação da possibilidade de fazer upload de múltiplos ficheiros</title>
+        <subtitle>TPC da UC Desenvolvimento de Aplicações Web</subtitle>  
+        <bdate>02/12/20</bdate>
+        <edate>09/12/20</edate>
+        <supervisor url="http://www.di.uminho.pt/~jcr">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83899">
+            <name>André Loureiro Morais</name>
+            <email>a83899@alunos.uminho.com</email>
+            <link url="https://github.com/Demorales1998"> Github </link>
+        </member>
+    </team>
+    <abstract>
+        <p>Este trabalho foi realizado para unidade curricular <i><b>Desenvolvimento de aplicações Web</b></i>.</p>
+        <p>o principal objetivo a implementação da possibilidade de fazer o upload de múltiplos ficheiros de uma só vez. </p>
+    </abstract>
+    <deliverables>
+        <link url="server.js">Servidor</link>
+        <link url="html-template.js">Funções JavaScript utilizadas pelo servidor</link>
+        <link url="/public/imagens.js">Funções JavaScript utilizadas pelo cliente</link>
+    </deliverables>
+</pr>

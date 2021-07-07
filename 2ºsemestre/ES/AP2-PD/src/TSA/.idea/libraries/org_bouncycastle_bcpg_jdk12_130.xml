@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.bouncycastle:bcpg-jdk12:130" type="repository">
+    <properties maven-id="org.bouncycastle:bcpg-jdk12:130" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcpg-jdk12/130/bcpg-jdk12-130.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk12/130/bcprov-jdk12-130.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

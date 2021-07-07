@@ -1,0 +1,124 @@
+extends header
+block content
+    .w3-h1 <i class="fas fa-user-circle"></i> Perfil
+    hr
+    br
+    .container
+        .main-body
+            .row.gutters-sm
+                .col-md-4.mb-3
+                    .card
+                        .card-body
+                            .d-flex.flex-column.align-items-center.text-center
+                                    if( temFoto == true )
+                                        img.imagep(src="/profilepics/" + perfil.email + extensao alt="Avatar" class="imgp" style="width:100%")
+                                    else
+                                        img.imagep(src="/profilepics/default.png" alt="Avatar" class="imgp" style="width:100%")
+                                    if(change == true)
+                                        div(class="middlep")
+                                            div(class="textp")
+                                                form.w3-container(action='/newProfilePic' method='POST' id="myform" enctype='multipart/form-data')
+                                                    input#selectedFile(type='file' name="myFile" accept="image/png, image/jpeg, image/jpg, image/gif, image/jfif" style='display: none;')
+                                                    input(type='button' value='Browse...' onclick="document.getElementById('selectedFile').click();")
+                                                    input.w3-btn.w3-g.w3-border(type='submit' value='Submit')
+                                    .mt-3
+                                        h4 #{perfil.nome}
+                                        p.text-secondary.mb-1 <i class="fas fa-user-graduate"></i> #{perfil.filiacao}
+                                    
+                .col-md-8
+                    .card.mb-3
+                        .card-body
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 <i class="far fa-envelope"></i> Email
+                                .col-sm-9.text-secondary
+                                    | #{perfil.email}
+                            hr
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 <i class="fas fa-user-shield"></i> Nível
+                                .col-sm-9.text-secondary
+                                    | #{perfil.nivel}
+                            hr
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 <i class="far fa-clock"></i> Data de registo
+                                .col-sm-9.text-secondary
+                                    | #{perfil.dataRegisto}
+                            hr
+                            .row
+                                .col-sm-3
+                                    h6.mb-0 <i class="fas fa-sign-in-alt"></i> Último acesso
+                                .col-sm-9.text-secondary
+                                    | #{perfil.dataUltimoAcesso}
+                            if (isProd==1)  
+                                hr
+                                .row
+                                .col-sm-3
+                                    h6.mb-0 
+                                        i(class="fab fa-slack-hash")
+                                        |  Número de publicações
+                                .col-sm-9.text-secondary
+                                    | #{num}
+                if (isProd==1) 
+                    .row.gutters-sm
+                        .col-md8
+                            .card.mb-3
+                                .card-body
+                                    h6.d-flex.align-items-center.mb-3
+                                        i.material-icons.text-info.mr-2 <i class="fas fa-file"></i> Meus recursos
+                                    if (isProd==1)            
+                                        table.w3-table-all#myTable
+                                            thead
+                                                tr
+                                                    th ID
+                                                    th Tipo
+                                                    th Título
+                                                    th Descrição
+                                                    th Subtítulo
+                                                    th Data de Criação
+                                                    th Data de Registo
+                                                    th Hashtags
+                                                    th Autor
+                                            tbody
+    script(src='https://code.jquery.com/jquery-3.5.1.js')
+    link(rel='stylesheet', href='/stylesheets/profile.css') 
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css')
+    script(src='https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')
+    script.
+        $(document).ready(function() {
+            var token = '!{token}'
+            var email = '!{id}'
+            $('#myTable').DataTable( {
+                "paginate": true,
+                "order": [[ 1, "desc" ]],
+                "ajax": {
+                    "url": "http://localhost:7777/recurso/lista?autor="+ email + "&token="+token,
+                    "type": "GET"
+                },
+                 "columnDefs": [
+                    {
+                        "targets": [0],
+                        "visible": false,
+                        "searchable": false
+                    }
+                 ],
+                "columns": [
+                    { "data": "_id"},
+                    { "data": "tipo"},
+                    { "data": "titulo", 
+                        "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                                $(nTd).html("<a href='http://localhost:7778/recursos/" + oData._id + "'>" + oData.titulo + "</a>");
+                        } 
+                    },
+                    { "data": "descricao" },
+                    { "data": "subtitulo" },
+                    { "data": "dataCriacao" },
+                    { "data": "dataRegisto" },
+                    { "data": "hashtags" },
+                    { "data": "nome" }
+                ],
+            } );
+        });
+    

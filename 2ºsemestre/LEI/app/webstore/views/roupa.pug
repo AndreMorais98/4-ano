@@ -1,0 +1,84 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Criar Certificado
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.main
+  // Sign up form
+  section.signup
+    .container
+      .signup-content
+        .signup-form
+          h2.form-title Criar Certificado
+          form#register-form.register-form(method='POST' action='/files/roupa' enctype='multipart/form-data')
+            //- Nome
+            .form-group
+              label(for='nome')
+                i.zmdi.zmdi-reader
+              input#nome(type='text' name='nome' placeholder='Nome')
+
+            //- Composição
+            .form-group
+              label(for='composicao') 
+                i.zmdi.zmdi-view-compact
+              input#num(type='text' name='composicao' placeholder='Composição')
+
+            //- d
+            .form-group
+              label(for='descricao')
+                i.zmdi.zmdi-comment-alt-text
+              input#num(type='text' name='descricao' placeholder='Descrição')
+
+            //- Tamanho
+            .form-group
+              label(for='tamanho')
+                i.zmdi.zmdi-format-size
+              input#ano(type='text' name='tamanho' placeholder='Tamanho')
+
+            //- Marca
+            .form-group
+              label(for='marca')
+                i.zmdi.zmdi-label
+              input#pureza(type='text' name='marca' placeholder='Marca')
+
+            //- Fabricante
+            .form-group
+              label(for='pais_fabricante')
+                i.zmdi.zmdi-badge-check
+              input#fabricante(type='text' name='pais_fabricante' placeholder='País Fabricante')
+            
+            .form-group
+              p Sexo
+              label(for='sexo')
+              select(id="sexo" name="sexo")
+                option(value="Feminimo") Feminimo
+                option(value="Masculino") Masculino 
+                option(value="Unisexo") Unisexo  
+
+            .form-group
+              p Peça de Roupa
+              label(for='peca')
+              select(id="peca" name="peca")
+                option(value="Calças") Calças
+                option(value="Calções") Calções   
+                option(value="Camisa") Camisa 
+                option(value="Casaco") Casaco 
+                option(value="Roupa_Interior") Roupa Interior
+                option(value="Sapatos") Sapatos
+                option(value="T-shirt") T-shirt   
+
+            //- Foto de perfil
+            .form-group
+              label(for='foto')
+                i.zmdi.zmdi-search-in-file
+              input#foto(type='file' name='myFile' placeholder='Escolher Ficheiro' multiple accept="image/png, image/jpeg, image/jpg")
+              
+            .form-group.form-button
+              input#signup.form-submit(type='submit' value='Criar')
+        .signup-image
+          figure
+            img(src='/images/wardrobe.png' alt='sing up image')
+          a.signup-image-link(href='/certificado') Voltar atrás

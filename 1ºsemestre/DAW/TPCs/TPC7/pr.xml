@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/andre/OneDrive/%C3%81rea%20de%20Trabalho/Universidade/4ano/DAW/Aulas/Aula%204/pr.dtd">
+<pr>
+    <meta>
+        <key>TPC7</key>
+        <title></title>
+        <subtitle>TPC da UC Desenvolvimento de Aplicações Web</subtitle>  
+        <bdate>24/11/20</bdate>
+        <edate>01/12/20</edate>
+        <supervisor url="http://www.di.uminho.pt/~jcr">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83899">
+            <name>André Loureiro Morais</name>
+            <email>a83899@alunos.uminho.com</email>
+            <link url="https://github.com/Demorales1998"> Github </link>
+        </member>
+    </team>
+    <abstract>
+        <p>Este trabalho foi realizado para unidade curricular <i><b>Desenvolvimento de aplicações Web</b></i>.</p>
+        <p>Neste trabalho foi desenvolvido um servidor em <b>Express.js</b> para servir um gestor de alunos na forma de uma <i>SPA</i>.</p> 
+    </abstract>
+    <deliverables>
+        <link url="app.js">Ponto de entrado ao servidor aplicacional em Express.js</link>
+        <link url="views/">Pasta com as views (templates) definidos em PUG</link>
+        <link url="routes/">Pasta com as rotas de resposta do sistema</link>
+        <link url="controllers/">Pasta com o "middleware" de comunicação com a BD e execução de queries</link>
+        <link url="models/">Pasta com os modelos definifos em Mongoose relativos ao esquema de dados do sistema, em MongoDB</link>
+        <link url="./pr.xml">XML do Project Record</link>
+        <link url="./DAW2020.json">Dataset usado</link>
+    </deliverables>
+</pr>

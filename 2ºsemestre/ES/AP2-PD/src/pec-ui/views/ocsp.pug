@@ -1,0 +1,27 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.sidebar
+  a(href='/home') Home
+  a(href='/certificate') Create Certificates
+  a(href='/list/certificate') List Certificates
+  a(href='/crl') Import Certificate Revocation List
+  a.active(href='/ocsp') OCSP Service
+  a(href="/logout" ) 
+    i(class="fas fa-sign-out-alt")
+    |   Logout
+.content
+  h1 Check Certificate Status
+  p Use this form to confirm the status of a certificate 
+  hr
+  form.w3-container.w3-card-8(action='/ocsp' method='POST')
+    .w3-row.w3-margin-bottom
+      .w3-col.s3
+        label Insert the serial number of the certificate
+      .w3-col.s9.w3-border
+        input.w3-input.w3-border.w3-light-grey(type='text' name='sn')
+    br
+    input.w3-btn.w3-teal.w3-border(type='submit' value='Submit')

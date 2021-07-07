@@ -1,0 +1,82 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h2 Lista de Processos (CPU)
+        if pidc.length > 0
+            .w3-container
+                table(id="myTable").w3-table-all
+                    tr
+                        th(onclick="sortTable(0)") PID
+                        th(onclick="sortTable(1)") Nome
+                        th(onclick="sortTable(2)") Percentagem Ocupada 
+                    each s in pidc
+                        tr
+                            td= s.pid
+                            td= s.nome
+                            td= s.percentagem
+                            td
+                                a(href="/" + id + "/cpu/" + s.pid).w3-button.w3-khaki.w3-round-small Gráfico
+        else
+            div.w3-container
+                p Ainda não há processos.
+    .w3-container.w3-teal
+        footer.w3-container
+            p
+                a(href="/" + id) Voltar à página anterior
+
+
+
+    script.
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            dir = "desc"; 
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                    //if so, mark as a switch and break the loop:
+                    shouldSwitch= true;
+                    break;
+                    }
+                } else if (dir == "desc") {
+                    if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                    //if so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                    }
+                }
+                }
+                if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount ++;      
+                } else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "desc") {
+                    dir = "asc";
+                    switching = true;
+                }
+                }
+            }
+        }

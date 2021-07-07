@@ -1,0 +1,70 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Avaliação da Roupa
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+.main
+  // Sign up form
+  section.signup
+    .container
+      .signup-content
+        .signup-form
+          h2.form-title Avaliação da Roupa
+          form#register-form.register-form(method='POST' action='/evento/roupa')
+
+            //- Título
+            .form-group
+              label(for='id')
+                i.zmdi.zmdi-folder-person
+              input#nome(type='text' name='id' placeholder='ID do certificado')
+              
+            //- Título
+            .form-group
+              label(for='titulo')
+                i.zmdi.zmdi-reader
+              input#nome(type='text' name='titulo' placeholder='Título')
+            //- Descriçao
+            .form-group
+              label(for='descricao')
+                i.zmdi.zmdi-comment-alt-text
+              input#num(type='text' name='descricao' placeholder='Descrição')
+              
+            //-Preço
+            .form-group
+              label(for='preco')
+                i.zmdi.zmdi-money
+              input#ano(type='text' name='preco' placeholder='Preço Médio')
+
+            //- Localização
+            .form-group
+              label(for='localizacao')
+                i.zmdi.zmdi-gps-dot
+              input#peso(type='text' name='localizacao' placeholder='Localização do Evento')
+
+            //-Preço do Serviço
+            .form-group
+              label(for='preco_ser')
+                i.zmdi.zmdi-money-box
+              input#ano(type='text' name='preco_ser' placeholder='Preço do Serviço')
+
+            .form-group
+              p Tipo de Peça
+              label(for='peca')
+              select(id="peca" name="peca")
+                option(value="Calças") Calças
+                option(value="Calções") Calções   
+                option(value="Camisa") Camisa 
+                option(value="Casaco") Casaco 
+                option(value="Roupa_Interior") Roupa Interior
+                option(value="Sapatos") Sapatos
+                option(value="T-shirt") T-shirt 
+
+            .form-group.form-button
+              input#signup.form-submit(type='submit' value='Criar')
+        .signup-image
+          figure
+            img(src='/images/eventoRoupa.png' alt='sing up image')
+          a.signup-image-link(href='/evento') Voltar atrás

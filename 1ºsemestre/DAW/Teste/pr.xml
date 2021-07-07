@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>DAW 2020</key>
+        <title>Teste de Desenvolvimento e Aplicações WEB</title>
+        <bdate>20-01-2021</bdate>
+        <edate>20-01-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A83899">
+            <name>André Loureiro Morais</name>
+            <email>a83899@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>
+           <b> Resposta à 1.1: </b>
+           1. Inicialmente substitui com um ctr+f e ctr+h  para substituir adicionar ", como por exemplo, ref por "ref". 
+           3. Para a criação do campo _id, mae e pai , criei um script js para isso (para correr: node script.js) gerando o batismos_fixed.json.
+           Este último será usado para alimentar a base de dados.
+            <b> Resposta à 1.3: </b>
+            > mongoimport -d DAW -c batismos --jsonArray batismos_fixed.json
+        </p>
+
+        <p> 
+            No segundo exercício, foi proposto a implementação de uma aplicação em <i>nodejs</i> (porta 9091) que permita navegar sobre a API de dados, CLAV que visa a classificação e a avaliação de toda a documentação circulante na administração pública portuguesa.
+            Numa primeira fase foi testado a API de dados com o <i>Postman</i> de forma a perceber melhor a face a qual foi desenvolvido para tal foi respondido algumas questões:
+        </p>
+            <p>
+                <b>1) Quantos processos (nível 3) e quais são (obtem uma lista em JSON; podes concatenar sublistas invocando várias queries), pertencentes à descendência da classe 900? </b>
+                <u>R: Existem 842 processos nível 3. Existem 21 processos nível 3 pertencentes à descendência da classe 900</u>
+            </p>
+            <p>
+                <b>2) Quantas entidades estão catalogadas?</b>
+                <u>R: 637</u>
+            </p>
+            <p>
+                <b>3) Quantos processos (classes de nível 3) se encontram na descendência de 900.10?</b>
+                <u>R: 8</u>
+            </p>
+            <p>
+                <b>4) Quantos processos (classes de nível 3) estão relacionados com 900.10.505</b>
+                <u>R: 6</u>
+            </p>
+        <p>
+            Foi tudo implementado como pedido. Na página inicial, apresenta-se uma tabela com as classes de nível 1, com links respetivos para cada classe.
+            Dentro da página de cada classe encontra-se a sua informação, e uma tabela respetiva com os seus descendentes. Caso for de nível 3, apresenta-se outra tabela
+            com as classes relacionadas e o tipo de relação associado.
+            De notar, o token foi usado estaticamente, isto é, fiz um post à API fornecida e usei o token dado pela API, isto é, não tentei a valorização.
+        </p>
+    </abstract>
+    <deliverables>
+            <link url="../ex1/dataSetRespostas/batismos.json">Dataset disponibilizado  - exercício 1</link>
+            <link url="../ex1/dataSetRespostas/batismos_fixed.json">Dataset corrigido  - exercício 1.1</link>
+            <link url="../ex1/controllers/batismos.js">Funções para retirar informação da base de dados - exercício 1</link>
+            <link url="../ex1/models/batismos.js">Modelo de um objecto do dataset - exercício 1</link>
+            <link url="../ex1/routes/api.js">Rotas implementadas - exercício 1</link>
+            <link url="../ex2/routes/index.js">Rotas implementadas - exercício 2</link>
+            <link url="pr.xml">pr.xml</link>
+    </deliverables>
+</pr>

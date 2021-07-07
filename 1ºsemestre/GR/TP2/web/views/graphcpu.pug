@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-teal
+            h2 CPU do Processo #{pid}
+        .w3-container
+        div(id="graphdiv2")
+        script(type="text/javascript").
+            var grafico = JSON.parse('!{graph}');
+            console.log(grafico)
+            new Dygraph(document.getElementById("graphdiv2"),
+              function() {
+                  array_new = []
+                  grafico.map(element => {array_new.push([new Date(element[0]),element[1]])})
+                  return array_new}
+              ,{
+                labels: [ "Data", "Percentagem" ],
+                title: "CPU do processo #{pid}",
+                drawPoints: true,
+                animatedZooms: true,
+                height: 840,
+                width: 1800,
+                digitsAfterDecimal: 5
+                //dateWindow: [5,10]
+              });
+    .w3-container.w3-teal
+        footer.w3-container
+            p
+                a(href="/" + id + "/cpu/") Voltar à página anterior

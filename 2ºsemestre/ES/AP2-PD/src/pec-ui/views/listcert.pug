@@ -1,0 +1,64 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.sidebar
+  a(href='/home') Home
+  a(href='/certificate') Create Certificates
+  a.active(href='/list/certificate') List Certificates
+  a(href='/crl') Import Certificate Revocation List
+  a(href='/ocsp') OCSP Service
+  a(href="/logout" ) 
+    i(class="fas fa-sign-out-alt")
+    |   Logout
+.content
+  h1 List Certificates
+  hr
+
+  .w3-card-4
+    header.w3-container
+      .w3-container.w3-margin
+        table.w3-table-all#myTable(class="cell-border stripe")
+          caption Lista de Certificados
+            thead
+              tr
+                th Serial Number
+                th Status
+                th Subject Name
+            tbody
+
+  script(src='https://code.jquery.com/jquery-3.5.1.js')
+  link(rel='stylesheet', href='https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css')
+  script(src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js')
+  script.
+    var token = '!{token}';
+    $(document).ready(function() {
+      $('#myTable').DataTable( {
+        columnDefs: [
+            { width: '60%', targets: 2 },
+            { width: '20%', targets: 1 },
+            { width: '20%', targets: 0 },
+            {
+              targets: [0,1,2],
+              className: 'dt-body-center'
+            }
+        ],
+        "paginate": true,
+        "order": [[ 1, "desc" ]],
+        "ajax": {
+          "url": "http://localhost:7779/certificados?token=" + token,
+          "type": "GET"
+        },
+        "columns": [
+          { "data": "serial_number",
+            "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+              $(nTd).html("<a href='http://localhost:7778/certificado/"+ oData.serial_number +"'>"+ oData.serial_number +"</a>");
+            } 
+          },
+          { "data": "status"},
+          { "data": "sn"}
+        ],
+      });
+    });

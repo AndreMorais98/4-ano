@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  title Login
+  link(rel='stylesheet' href='/stylesheets/fonts/material-icon/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='/stylesheets/login.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.main
+  // Sing in  Form
+  section.sign-in
+    .container
+      .signin-content
+        .signin-image
+          figure
+            img(src='images/shield.png' alt='sing up image')
+        .signin-form
+          h2.form-title Application is asking for permissions 
+          h4 Authorizing will redirect to http://localhost:8080
+            .form-group.form-button
+                input#signin.form-submit(type='submit' value='yes' onclick="myFunction('yes')")
+            .form-group.form-button
+                input#signin.form-submit(type='submit' value='no' onclick="myFunction('no')")
+
+  script.
+    function myFunction(res) {
+      if(res == 'yes') window.location.replace("http://localhost:8080/check");
+      else window.location.replace("http://localhost:7777");
+    }

@@ -1,0 +1,87 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  link(rel='stylesheet' href='/stylesheets/loading.css')
+  script(src="https://unpkg.com/@arianee/arianeejs@latest/browser/bundle.js")
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser-polyfill.min.js')
+  script(src='https://code.jquery.com/jquery-3.5.1.js')
+
+  .centered
+    #console
+    #loader
+
+  .wrapper(id="minhoca")
+    span.circle.circle-1
+    span.circle.circle-2
+    span.circle.circle-3
+    span.circle.circle-4
+    span.circle.circle-5
+    span.circle.circle-6
+    span.circle.circle-7
+    span.circle.circle-8
+
+  
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+  script.
+    $(document).ready(async function() {
+      const {Arianee} = ArianeeLib;
+
+      const arianeeLib = new Arianee();
+      const arianee = await arianeeLib.init();
+      
+      // Create a random wallet
+      wallet = arianee.fromPrivateKey('#{pkey}');
+
+      // Getting POA token for Gas
+      await wallet.requestPoa()
+        .then(i => _("Getting POA"))
+        .catch(i => _("Getting POA",false));
+
+      // Getting Aria
+      await wallet.requestAria()
+        .then(i => _("Getting ARIA"))
+        .catch(i => _("Getting ARIA",false));
+
+      // Approve store contract to manage our Aria  
+      await wallet.methods.approveStore()
+        .then(i => _("Approve store"))
+        .catch(i => _("Approve store",false));  
+
+      // Buy certificate credits  
+      await wallet.methods.buyCredits('message', 5)   
+        .then(i => _("Buying credits"))
+        .catch(i => _("Buying credits",false));
+
+
+      var idata = JSON.parse('!{n}'); 
+      axios.post('http://localhost:8500/notificacao?token=' + '#{token}', {content: idata})
+      .then(dados => {
+        (_("Notification Sent, redirecting to Homepage"));
+        $(location).attr('href', 'http://localhost:8501/store')
+      })
+      .catch(err => (_("Dind't sent the Notification"), false))
+    })
+
+  script.
+    function _(log,success=true) {
+      console.log(log);
+  
+      var node = document.createElement("LI");                 // Create a <li> node
+      var textnode = document.createTextNode(log);         // Create a text node
+      node.appendChild(textnode);                              // Append the text to <li>
+      document.getElementById("console").appendChild(node);     // Append <li> to <ul> with id="myList"
+      
+      window.scrollTo(0,1000);
+    }
+
+  script.
+    function start() {
+  
+    var loader = document.getElementById("loader");
+      loader.classList.add("show");
+      
+      var button = document.getElementById("big_button");
+        button.classList.add("hide"); 
+    } 

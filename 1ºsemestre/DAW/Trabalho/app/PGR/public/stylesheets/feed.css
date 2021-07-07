@@ -1,0 +1,111 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.4;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  .photo-item {
+    margin: 40px 0;
+    padding-top: 20px;
+    border-top: 1px solid #DDD;
+  }
+  
+  .photo-item__image {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .page-load-status {
+    display: none; /* hidden by default */
+    padding-top: 20px;
+    border-top: 1px solid #DDD;
+    text-align: center;
+    color: #777;
+  }
+  
+  /* loader ellips in separate pen CSS */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  p {
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 600px;
+    margin: 50px auto;
+ 
+  }
+  
+  .feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .post:first-child {
+      
+    flex: 0 0 100%;
+  }
+  
+  
+  .post-image-container a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+  }
+  .post-content{
+    margin: 40px 0;
+    padding-top: 20px;
+    border-top: 1px solid #DDD;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+  
+    padding: 20px;
+   
+  }
+  .post-image {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    position: absolute
+  }
+  
+  .post-title a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .post-date {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .post-author {
+    color: #444;
+  }
+  
+  @media screen and (max-width: 720px) {
+    .container {
+      width: 90%;
+    }
+    
+    .container .post {
+      flex: 0 0 100%;
+      margin: 0 0 40px;
+    }
+  } 

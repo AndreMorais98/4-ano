@@ -1,0 +1,12 @@
+{
+  "name": "Wallet",
+  "displayName": "Wallet",
+  "expo": {
+    "name": "Wallet",
+    "slug": "Wallet",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

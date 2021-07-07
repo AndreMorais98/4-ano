@@ -1,0 +1,10 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	font-family: 'Poppins', 'Helvetica', sans-serif;
+	background-image: linear-gradient(15deg, #F9F5EC 0%, rgb(59, 46, 11) 100%);	
+}

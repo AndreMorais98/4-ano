@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "file:/C:/Users/andre/OneDrive/%C3%81rea%20de%20Trabalho/Universidade/4ano/DAW/Aulas/Aula%204/pr.dtd">
+<pr>
+    <meta>
+        <key>TPC5</key>
+        <title>Criação de Servidor em Nodejs</title>
+        <subtitle>TPC da UC Desenvolvimento de Aplicações Web</subtitle>  
+        <bdate>11/11/20</bdate>
+        <edate>18/11/20</edate>
+        <supervisor url="http://www.di.uminho.pt/~jcr">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="a83899">
+            <name>André Loureiro Morais</name>
+            <email>a83899@alunos.uminho.com</email>
+            <link url="https://github.com/Demorales1998"> Github </link>
+        </member>
+    </team>
+    <abstract>
+        <p>Neste trabalho foi desenvolvido um servidor em <i><b>NodeJs</b></i> que serve páginas dinâmicas, sempre que o servidor precisa de informação faz pedidos a um <i>json server</i> sobre um <i>dataset</i> de cursos de música.</p>
+    </abstract>
+    <deliverables>
+        <link url="./pr.xml">XML do Project Record</link>
+        <link url="./server.js">Servidor em NodeJs</link>
+        <link url="./db.json">Dataset usado</link>
+    </deliverables>
+</pr>

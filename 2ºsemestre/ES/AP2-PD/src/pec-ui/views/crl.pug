@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.sidebar
+  a(href='/home') Home
+  a(href='/certificate') Create Certificates
+  a(href='/list/certificate') List Certificates
+  a.active(href='/crl') Import Certificate Revocation List
+  a(href='/ocsp') OCSP Service
+  a(href="/logout" ) 
+    i(class="fas fa-sign-out-alt")
+    |   Logout
+.content
+  h1 Import Certificate Revocation List
+  hr
+  form.w3-container.w3-card-8(action='/crl' method='POST' id="myform" )
+    b Select CRL issuing point
+    .w3-row.w3-margin-bottom
+      .w3-col.s9
+          select(id="size" name="size")
+              option(value='master') MasterCRL
+    br
+    b Select one of these actions
+    br
+    .w3-row.w3-margin-bottom
+      .w3-col.s9
+          select(id="choose" name="choose")
+              option(value='display') Display the CRL information
+              option(value='download') Download the latest CRL in binary form
+    br
+    input.w3-btn.w3-teal.w3-border(type='submit' value='Submit')
+    

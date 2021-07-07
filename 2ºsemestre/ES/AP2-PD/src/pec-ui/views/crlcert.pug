@@ -1,0 +1,19 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css")
+  link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css")
+.sidebar
+  a(href='/home') Home
+  a(href='/certificate') Create Certificates
+  a(href='/list/certificate') List Certificates
+  a.active(href='/crl') Import Certificate Revocation List
+  a(href='/ocsp') OCSP Service
+  a(href="/logout" ) 
+    i(class="fas fa-sign-out-alt")
+    |   Logout
+.content
+  h1 Certificate Revocation List
+  hr
+  pre #{cert}
