@@ -3,6 +3,6 @@
 
 ## Trabalhos:
 - TP1: Docker
-- TP2: Passive Information Gathering & PenTest - Scanning
-- TP3: Autorização de Operações ao nível do Sistema de Ficheiros
+- TP2: Docker Microservices
+- TP3: OpenFlow
 
